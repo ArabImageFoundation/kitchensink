@@ -1,0 +1,42 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf ./public/*",
+    "es5": "node ./node_modules/.bin/webpack --config webpack/compile.js",
+    "compile": "npm run clean && npm run es5",
+    "start": "./node_modules/.bin/webpack-dev-server ./example/index.js --hot --inline --config webpack/server.js --content-base example/public/",
+    "hot": "node hotServer.js"
+  },
+  "dependencies": {
+    "tcomb-form": "^0.7.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.2.0",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "chai": "^3.4.1",
+    "classnames": "^2.2.0",
+    "css-loader": "^0.23.0",
+    "domready": "^1.0.8",
+    "flowcheck": "^0.2.7",
+    "flowcheck-loader": "^1.0.0",
+    "jsx-webpack-loader": "^0.1.2",
+    "material-ui": "^0.13.4",
+    "mocha": "^2.3.4",
+    "pouchdb": "^5.1.0",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-hot-loader": "^1.3.0",
+    "react-redux": "^4.0.0",
+    "react-tap-event-plugin": "^0.2.1",
+    "redux-devtools": "^2.1.5",
+    "redux-thunk": "^1.0.0",
+    "style-loader": "^0.13.0",
+    "stylus-loader": "^1.4.2",
+    "webpack": "^1.12.6",
+    "webpack-dev-server": "^1.12.1"
+  }
+}

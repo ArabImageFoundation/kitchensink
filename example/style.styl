@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,300,500');
+
+.sidebar
+	position fixed
+	top 51px
+	bottom 0
+	right 0
+
+fieldsetBaseColor = rgb(139, 172, 5)
+legendsBaseSize = 1.6em
+legendsDecay = 0.1
+
+clamp(v,_max,_min)
+	min(_max,max(_min,v))
+
+gradeColor(num)
+	lighten(fieldsetBaseColor,(num * 10))
+
+.fieldset
+	box-sizing border-box
+	padding 1em
+	background-color fieldsetBaseColor
+	&.fieldset-depth-0
+		max-width 80%
+	legend
+		float left
+		width 100%
+		font-size legendsBaseSize
+		margin-bottom 1em
+		box-sizing border-box
+		padding-left 1em
+		border none
+	.row
+		margin 0
+		padding 1em 0 0 0
+		&:first-child
+			margin-top 2em
+		&.item
+			border-top 1px solid rgb(251, 251, 251)
+			&:first-of-type
+				border none
+	for num in (0...10)
+		.fieldset-depth-{num}
+			background-color gradeColor(num)
+			legend
+				font-size (0em + clamp((legendsBaseSize - ((num+1) * legendsDecay)),legendsBaseSize,1));
+
+
+@-webkit-keyframes spaceboots {
+	0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+.konami
+	animation-name: spaceboots;
+	animation-duration: 0.8s;
+	transform-origin:50% 50%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
